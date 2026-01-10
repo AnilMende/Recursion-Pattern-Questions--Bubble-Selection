@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+public class BubbleSortRecursion {
+    public static void main(String[] args) {
+        int arr[] = {6,5,4,3,2,1};
+        bubble(arr,arr.length-1,0);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    static void bubble(int arr[], int i, int j){
+        //base condition
+        if(i == 0){
+            return;
+        }
+
+        if(j < i){
+            if(arr[j] > arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+            bubble(arr,i,j+1);
+        }
+        //after 1 iteration, decrement the value of i
+        //because max element is placed at it's correct position
+        //so no need of checking for the sorted element
+        else{
+            bubble(arr,i-1,0);
+        }
+    }
+}
